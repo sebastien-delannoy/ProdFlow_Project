@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Link, Outlet } from "react-router-dom";
+
 
 const AddLine = () => {
   const [site_id, setSiteId] = useState("");

@@ -5,7 +5,7 @@ import "bulma/css/bulma.css";
 import Home from "./page/Home";
 import Support from "./page/Support";
 import Setting from "./page/Setting";
-import Login from "./page/Login";
+import Log from "./page/Log";
 
 import SiteList from "./page/SiteList";
 import AddSite from "./page/AddSite";
@@ -14,6 +14,11 @@ import LineList from "./page/LineList";
 import AddLine from "./page/AddLine";
 import EditLine from "./page/EditLine";
 import CreateTicket from "./page/CreateTicket";
+
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import Register from "./components/Register";
 
 function App() {
   return (
