@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddSite = () => {
+const EditSite = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const [town, setTown] = useState("");
   const [zipcode, setZipcode] = useState("");
-  const [country, setCountry] = useState("France");
+  const [country, setCountry] = useState("");
 
   const navigate = useNavigate();
-  const params = useParams();
+  const { id } = useParams();
 
-  const saveUser = async (e) => {
+  useEffect(() => {
+    getSiteById();
+  }, []);
+
+  const updateSite = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4025/sites/add", {
+      await axios.patch(`http://localhost:4025/sites/${id}`, {
         name,
         description,
         address,
@@ -31,14 +34,22 @@ const AddSite = () => {
     }
   };
 
-  return (
-    <div>
-    {/* <div className="columns is-centered">
-      <div className="column is-full"> */}
-        <form onSubmit={saveUser}>
+  const getSiteById = async () => {
+    const response = await axios.get(`http://localhost:4025/sites/${id}`);
+    setName(response.data.name);
+    setDescription(response.data.description);
+    setAddress(response.data.address);
+    setTown(response.data.town);
+    setZipcode(response.data.zipcode);
+    setCountry(response.data.country);
+  };
 
+  return (
+    <div className="Page">
+      <div className="column is-full">
+        <form onSubmit={updateSite}>
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label">Site Name</label>
             <div className="control">
               <input
                 type="text"
@@ -115,21 +126,19 @@ const AddSite = () => {
                   <option value="Belgium">Belgium</option>
                   <option value="UK">UK</option>
                   <option value="Finland">Finland</option>
-                  
                 </select>
               </div>
             </div>
           </div>
           <div className="field">
             <button type="submit" className="button is-success">
-              Register
+              Update Site Information
             </button>
           </div>
         </form>
-      {/* </div>
-      </div> */}
+      </div>
     </div>
   );
 };
 
-export default AddSite;
+export default EditSite;

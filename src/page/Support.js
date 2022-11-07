@@ -1,15 +1,14 @@
 import React from "react";
 
-const Home = () => {
+const Support = () => {
   return (
     <div className="Page">
       <br></br>
       <br></br>
       <br></br>
-      <h1>Welcome to Production Flow!</h1>
-      <h1>the best tracking system</h1>
+      <h1>Provide instant reporting to production process!</h1>
     </div>
   );
 };
 
-export default Home;
+export default Support;

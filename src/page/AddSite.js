@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
-const EditSite = () => {
+const AddSite = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
@@ -11,16 +13,12 @@ const EditSite = () => {
   const [country, setCountry] = useState("France");
 
   const navigate = useNavigate();
-  const { id } = useParams();
+  const params = useParams();
 
-  useEffect(() => {
-    getSiteById();
-  }, []);
-
-  const updateSite = async (e) => {
+  const saveUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:4025/sites/${id}`, {
+      await axios.post("http://localhost:4025/sites", {
         name,
         description,
         address,
@@ -28,28 +26,21 @@ const EditSite = () => {
         zipcode,
         country,
       });
-      navigate("/Home");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getSiteById = async () => {
-    const response = await axios.get(`http://localhost:4025/sites/${id}`);
-    setName(response.data.name);
-    setDescription(response.data.description);
-    setAddress(response.data.address);
-    setTown(response.data.town);
-    setZipcode(response.data.zipcode);
-    setCountry(response.data.country);
-  };
-
   return (
-    <div className="columns is-centered">
+    <div className="Page">
       <div className="column is-full">
-        <form onSubmit={updateSite}>
+        <br></br>
+        <p>Enter New Site Information</p>
+        <br></br>
+        <form onSubmit={saveUser}>
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label">Site Name</label>
             <div className="control">
               <input
                 type="text"
@@ -132,7 +123,7 @@ const EditSite = () => {
           </div>
           <div className="field">
             <button type="submit" className="button is-success">
-              Save Changes
+              Save
             </button>
           </div>
         </form>
@@ -141,4 +132,4 @@ const EditSite = () => {
   );
 };
 
-export default EditSite;
+export default AddSite;

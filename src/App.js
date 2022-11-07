@@ -1,27 +1,45 @@
-
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "bulma/css/bulma.css";
+
 import Home from "./page/Home";
-import Courses from "./page/Courses";
+import Support from "./page/Support";
+import Setting from "./page/Setting";
+import Login from "./page/Login";
+
 import SiteList from "./page/SiteList";
-import AddSite from "./component/AddSite";
-import Search from "./component/Search";
-import List from "./component/List";
+import AddSite from "./page/AddSite";
+import EditSite from "./page/EditSite";
+import LineList from "./page/LineList";
+import AddLine from "./page/AddLine";
+import EditLine from "./page/EditLine";
+import CreateTicket from "./page/CreateTicket";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="courses">Courses</Link>
+          <Link to="/home">Our activities</Link>
+          <Link to="/">Our facilities</Link>
+          <Link to="/support">Support</Link>
+          <Link to="/setting">Settings</Link>
+          <Link to="/connect">Login</Link>
         </nav>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/courses" element={<Courses />}>
-            <Route path="search" element={<Search />} />
-            <Route path="list" element={<List />} />
-          </Route>
+          <Route path="/home" element={<Home />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/connect" element={<Login />} />
+
+          <Route path="/" element={<SiteList />} />
+          <Route path="add" element={<AddSite />} />
+          <Route path="addline" element={<AddLine />} />
+          <Route path="edit/:id" element={<EditSite />} />
+          <Route path="/lines/:id" element={<LineList />} />
+          <Route path="/lines/:id/new" element={<AddLine />} />
+          <Route path="/lines/:id/edit/:id" element={<EditLine />} />
+          <Route path="/lines/:id/create" element={<CreateTicket />} />
         </Routes>
       </Router>
     </div>
@@ -29,28 +47,3 @@ function App() {
 }
 
 export default App;
-
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Router>
-//         <nav>
-//           <Link to="/">Home</Link>
-//           <Link to="sites">Sites</Link>
-//         </nav>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/sites" element={<SiteList />}>
-//             {/* <Route path="add" element={<AddSite />} /> */}
-//             <Route path="search" element={<Search />} />
-           
-//           </Route>
-//         </Routes>
-//       </Router>
-//     </div>
-//   );
-// }
-
-// export default App;

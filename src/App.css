@@ -1,10 +1,10 @@
 /* Styling for the App component nav element 
 and Course component course-nav div */
 .App nav, .courses-nav{
-  background: #f2f2f2;
+  
   height: 8vh;
   min-width: 600px;
-  border-radius: 10px;
+  width: 100%;
   text-align: center;
   border-bottom: 2px solid #2f8d46;
 }
@@ -20,8 +20,8 @@ tag and Course component nav element anchor tag */
   color: #2f8d46;
 }
   
-/* Styling for Course component 
-course-nav div anchor tag */
+Styling for Course component 
+course-nav div anchor tag 
 .courses-nav a{
   color: rgb(59, 117, 241);
 }
@@ -34,15 +34,15 @@ course-nav div anchor tag */
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  background-color: lightgreen;
+  
 }
   
 /* Styling for the Search & List component main div */
 .Search, .List{
   width: 50%;
   height: 40%;
-  padding: 50px;
-  background-color: whitesmoke;
+  margin: 10px;
+  border: solid;
 }
 @keyframes App-logo-spin {
   from {

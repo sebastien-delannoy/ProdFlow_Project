@@ -1,15 +1,15 @@
 import React from "react";
 
-const Home = () => {
+const Login = () => {
   return (
     <div className="Page">
       <br></br>
       <br></br>
       <br></br>
-      <h1>Welcome to Production Flow!</h1>
-      <h1>the best tracking system</h1>
+      <h1>almost finalized!</h1>
+      <h1></h1>
     </div>
   );
 };
 
-export default Home;
+export default Login;

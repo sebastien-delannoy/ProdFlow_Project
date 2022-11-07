@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, Outlet } from "react-router-dom";
-// import Table from "react-bootstrap/Table";
-
 
 const SiteList = () => {
   const [sites, setSite] = useState([]);
@@ -27,17 +25,15 @@ const SiteList = () => {
 
   return (
     <div className="Page">
-    <div className="columns is-centered">
       <div className="column is-full">
-        {/* <Link to={`/sites/search`} className="button is-success"> */}
-        <Link to="/courses/search" className="button is-success">
+        <Link to={`add`} className="button is-success">
           Register New Site
         </Link>
         <table className="table is-striped is-fullwidth">
           <thead>
             <tr>
               <th>Id</th>
-              <th>Name</th>
+              <th>Site Name</th>
               <th>Description</th>
               <th>Address</th>
               <th>Town</th>
@@ -63,6 +59,12 @@ const SiteList = () => {
                   >
                     Edit
                   </Link>
+                  <Link
+                    to={`lines/${site.id}`}
+                    className="button is-small is-info mr-2"
+                  >
+                    Manage Site
+                  </Link>
                   <button
                     onClick={() => deleteSite(site.id)}
                     className="button is-small is-danger"
@@ -75,8 +77,6 @@ const SiteList = () => {
           </tbody>
         </table>
       </div>
-      <Outlet />
-    </div>
     </div>
   );
 };
