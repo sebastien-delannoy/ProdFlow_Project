@@ -60,7 +60,7 @@ const LineList = () => {
                     Edit Line
                   </Link>
 
-                  <Link to={`[create}`} className="button is-small is-info mr-2">
+                  <Link to={`create`} className="button is-small is-info mr-2">
                     Raise an incident
                   </Link>
 

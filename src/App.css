@@ -42,7 +42,7 @@ course-nav div anchor tag
   width: 50%;
   height: 40%;
   margin: 10px;
-  border: solid;
+  align-items: center;
 }
 @keyframes App-logo-spin {
   from {

@@ -17,7 +17,7 @@ const CreateTicket = () => {
   const saveTicket = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:4025/incidents/${id}`, {
+      await axios.post(`http://localhost:4025/incidents/`, {
         site_id,
         line_id,
         description,

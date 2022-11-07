@@ -26,9 +26,12 @@ const SiteList = () => {
   return (
     <div className="Page">
       <div className="column is-full">
+        <br></br>
         <Link to={`add`} className="button is-success">
           Register New Site
         </Link>
+        <br></br>
+        <br></br>
         <table className="table is-striped is-fullwidth">
           <thead>
             <tr>
