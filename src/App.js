@@ -36,6 +36,8 @@ function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/connect" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={[<Dashboard />, <Navbar />]} />
 
           <Route path="/" element={<SiteList />} />
           <Route path="add" element={<AddSite />} />
